@@ -7,13 +7,12 @@ import datetime
 from .models import *
 from .utils import cookieCart, cartData, guestOrder
 
-def category(request, name):
+def category(request, category_id):
      data = cartData(request)
      cartItems = data['cartItems']
 
-     print(name)
-     products = Product.objects.all()#Product.objects.get(id=request['category']['name'])
-     
+     products = Product.objects.filter(category=category_id)
+
      context = {'products': products, 'cartItems': cartItems}
      return render(request, 'store/category.html', context)
 

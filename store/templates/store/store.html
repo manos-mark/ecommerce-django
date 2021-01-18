@@ -10,7 +10,7 @@
                     <h6><strong>{{category.name}}</strong></h6>
                     <hr>
                     
-                    <a class="btn btn-outline-success" href="{% url 'category' category.name|lower %}">View</a>
+                    <a class="btn btn-outline-success" href="{% url 'category' category.id %}">View</a>
                </div>
           </div>
           {% endfor %}
