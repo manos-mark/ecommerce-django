@@ -4,8 +4,31 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 # TODO add a Category model
-# TODO add a Store model
 
+class Category(models.Model):
+    name = models.CharField(max_length=200, null=True)
+    image = models.ImageField(null=True, blank=True)
+
+    @property
+    def get_category_items(self):
+        categoryitems = self.categoryitem_set.all()
+        return categoryitems
+
+    @property
+    def get_category_items_count(self):
+        categoryitems = self.categoryitem_set.all()
+        return sum([item.quantity for item in categoryitems])
+
+    @property
+    def imageURL(self):
+        try:
+            url = self.image.url
+        except:
+            url = ''
+        return url
+        
+    def __str__(self):
+        return self.name
 
 class Customer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
@@ -17,6 +40,7 @@ class Customer(models.Model):
 
 
 class Product(models.Model):
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=False, null=False)
     name = models.CharField(max_length=200, null=True)
     price = models.DecimalField(max_digits=5, decimal_places=2)
     digital = models.BooleanField(default=False, null=True, blank=True)
@@ -79,7 +103,6 @@ class OrderItem(models.Model):
 
     def __str__(self):
         return self.product.name
-
 
 ## TODO we dont need this for the click away
 class ShippingAddress(models.Model):
