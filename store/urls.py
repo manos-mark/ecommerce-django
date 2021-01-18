@@ -5,7 +5,8 @@ from . import views
 urlpatterns = [
     # Leave as empty string for base url
     path('', views.store, name="store"),
-    path('category/', views.category, name="category"),
+    # TODO redirect to each category using category.name
+    path('category/<str:name>/', views.category, name="category"),
     path('cart/', views.cart, name="cart"),
     path('checkout/', views.checkout, name="checkout"),
     path('update_item/', views.updateItem, name="update_item"),
