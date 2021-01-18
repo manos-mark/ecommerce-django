@@ -9,10 +9,8 @@
                <div class="box-element category">
                     <h6><strong>{{category.name}}</strong></h6>
                     <hr>
-
-                    {% comment %} <button  data-product={{category.id}} data-action="add"
-                    class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button> {% endcomment %}
-                    <a class="btn btn-outline-success" href="{% url 'category' %}">View</a>
+                    
+                    <a class="btn btn-outline-success" href="{% url 'category' category.id %}">View</a>
                </div>
           </div>
           {% endfor %}

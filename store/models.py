@@ -10,16 +10,6 @@ class Category(models.Model):
     image = models.ImageField(null=True, blank=True)
 
     @property
-    def get_category_items(self):
-        categoryitems = self.categoryitem_set.all()
-        return categoryitems
-
-    @property
-    def get_category_items_count(self):
-        categoryitems = self.categoryitem_set.all()
-        return sum([item.quantity for item in categoryitems])
-
-    @property
     def imageURL(self):
         try:
             url = self.image.url
