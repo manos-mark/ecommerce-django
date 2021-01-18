@@ -50,12 +50,12 @@
             </div>
 
             <div class="box-element show-on-sm">
-                {% comment %} <div class="cart-row">
+                <div class="cart-row">
                     <div style="flex:2"></div>
                     <div style="flex:2; margin-left: 10px;"><strong>Item</strong></div>
                     <div style="flex:1; margin-left: 10px;"><strong>Price</strong></div>
                     <div style="flex:1; margin-left: 10px;"><strong>Quantity</strong></div>
-                    <div style="flex:1; margin-left: 10px;"><strong>Total</strong></div>
+                    <!-- <div style="flex:1; margin-left: 10px;"><strong>Total</strong></div> -->
                 </div>
                 
                 {% for item in items %}
@@ -63,7 +63,7 @@
                     <div style="flex:2"><img class="row-image" src={{item.product.imageURL}}></div>
                     <div style="flex:2"><p>{{item.product.name}}</p></div>
                     <div style="flex:1"><p>${{item.product.price|floatformat:2}}</p></div>
-                    <div style="flex:1">
+                    <div style="flex:1; display:inline-block;">
                         <p class="quantity">{{item.quantity}}</p>
                         <div class="quantity">
                             <img class="chg-quantity" src="{% static  'images/arrow-up.png' %}">
@@ -71,9 +71,9 @@
                             <img class="chg-quantity" src="{% static  'images/arrow-down.png' %}">
                         </div>
                     </div>
-                    <div style="flex:1"><p>${{item.get_total}}</p></div>
+                    <!-- <div style="flex:1"><p>${{item.get_total}}</p></div> -->
                 </div>
-                {% endfor %} {% endcomment %}
+                {% endfor %}
             </div>
 
         </div>
