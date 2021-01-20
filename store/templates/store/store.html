@@ -4,6 +4,7 @@
      <div class="row">
 
           {% for category in categories %}
+          <a href="{% url 'category' category.id %}">
           <div class="col-lg-4 col-md-6 col-sm-12">
                <img class="thumbnail" src="{{category.imageURL}}">
                <div class="box-element category">
@@ -13,6 +14,7 @@
                     <a class="btn btn-outline-success" href="{% url 'category' category.id %}">View</a>
                </div>
           </div>
+          </a>
           {% endfor %}
 
      </div>
