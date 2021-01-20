@@ -63,17 +63,18 @@ class Order(models.Model):
         orderitems = self.orderitem_set.all()
         return sum([item.quantity for item in orderitems])
 
+    #TODO fix this in order to support orders without shipping
     @property
     def shipping(self):
-        shipping = False
-        orderitems = self.orderitem_set.all()
-        for item in orderitems:
-            if item.product.digital == False:
-                shipping = True
-            else:
-                shipping = False
+        # shipping = False
+        # orderitems = self.orderitem_set.all()
+        # for item in orderitems:
+        #     if item.product.digital == False:
+        #         shipping = True
+        #     else:
+        #         shipping = False
 
-        return shipping
+        return True
     
 
     def __str__(self):
@@ -93,7 +94,6 @@ class OrderItem(models.Model):
     def __str__(self):
         return self.product.name
 
-## TODO we dont need this for the click away
 class ShippingAddress(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, blank=True, null=True)
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, blank=True, null=True)
