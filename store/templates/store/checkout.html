@@ -62,7 +62,7 @@
 
 			<br>
 			<div class="box-element hidden" id="payment-info">
-				<small>Paypal Options</small>
+				<p>Στοιχεία πληρωμής</p>
 				<!-- Set up a container element for the button -->
     			<div id="paypal-button-container"></div>
 			</div>
@@ -173,12 +173,31 @@
 			document.getElementById('shipping-info').classList.add('hidden')
 		})
 
-		/*form.addEventListener('submit', function(e){
+		var deliveryButton = document.getElementById('delivery-button')
+		deliveryButton.addEventListener('click', function(e){
+			document.getElementById('shipping-info').classList.remove('hidden')
+		})
+
+		var payonlineButton = document.getElementById('payonline-button')
+		payonlineButton.addEventListener('click', function(e){
+			document.getElementById('form-button').classList.add('hidden')
+			document.getElementById('payment-info').classList.remove('hidden')
+		})
+
+		var payondeliveryButton = document.getElementById('payondelivery-button')
+		payondeliveryButton.addEventListener('click', function(e){
+			document.getElementById('form-button').classList.remove('hidden')
+			document.getElementById('payment-info').classList.add('hidden')
+		})
+
+		var form = document.getElementById('form') 
+
+		{% comment %} form.addEventListener('submit', function(e){
 			e.preventDefault()
 			console.log('Form submitted..')
 			document.getElementById('form-button').classList.add('hidden')
 			document.getElementById('payment-info').classList.remove('hidden')
-		})  */
+		}) {% endcomment %}
 
 		function submitFormData(){
 			console.log('Payment button clicked')
