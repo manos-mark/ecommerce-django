@@ -27,6 +27,7 @@
                     <div style="flex:1; margin-left: 10px;"><strong>Price</strong></div>
                     <div style="flex:1; margin-left: 10px;"><strong>Quantity</strong></div>
                     <div style="flex:1; margin-left: 10px;"><strong>Total</strong></div>
+                    <div style="flex:1; margin-left: 10px;"></div>
                 </div>
                 
                 {% for item in items %}
@@ -45,6 +46,8 @@
                         </div>
                     </div>
                     <div style="flex:1"><p>${{item.get_total}}</p></div>
+                    <button style="flex:1;" class="btn btn-outline-danger btn-sm update-cart" data-product={{item.product.id}} 
+                        data-action="remove-all">Remove</button>
                 </div>
                 {% endfor %}
             </div>

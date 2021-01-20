@@ -33,6 +33,12 @@ function updateCookieItem(productId, action) {
         }
     }
 
+    if (action == 'remove-all') {
+        cart[productId]['quantity'] = 0
+        console.log('Remove all items')
+        delete cart[productId]
+    }
+
     document.cookie ='cart=' + JSON.stringify(cart) + ";domain=;path=/"
     location.reload()
 }
