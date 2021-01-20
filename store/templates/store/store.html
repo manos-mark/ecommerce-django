@@ -4,17 +4,17 @@
      <div class="row">
 
           {% for category in categories %}
+          <a href="{% url 'category' category.id %}">
           <div class="col-lg-4 col-md-6 col-sm-12">
                <img class="thumbnail" src="{{category.imageURL}}">
                <div class="box-element category">
                     <h6><strong>{{category.name}}</strong></h6>
                     <hr>
-
-                    {% comment %} <button  data-product={{category.id}} data-action="add"
-                    class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button> {% endcomment %}
-                    <a class="btn btn-outline-success" href="{% url 'category' %}">View</a>
+                    
+                    <a class="btn btn-outline-success" href="{% url 'category' category.id %}">View</a>
                </div>
           </div>
+          </a>
           {% endfor %}
 
      </div>
